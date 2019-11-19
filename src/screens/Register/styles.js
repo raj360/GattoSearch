@@ -3,78 +3,15 @@ const { Dimensions, Platform } = React;
 const deviceHeight = Dimensions.get("window").height;
 
 export default {
-  // container: {
-  //   // backgroundColor: "#FFF"
-  //   backgroundColor: "#FFAE02"
-  // },
-  // mb15: {
-  //   marginBottom: 20
-  // },
-  // mt15: {
-  //   marginTop: 15
-  // },
-  // formContainer:{
-  //   // flex: 1,
-  //   backgroundColor:'#FFAE02'
-  // },
-  // // logoContainer:{
-  // //   flex: 20,
-  // //   backgroundColor:'#FFFFFF',
-  // //   padding: 5,
-  // //   margin: 5,
-  // // },
-  // form:{
-  //   flex: 40,
-  //   backgroundColor:'#FFFFFF',
-  //   padding: 5,
-  //   margin: 5,
-  // },
-  // textContainer:{
-  //   flex: 20,
-  //   backgroundColor:'#FFFFFF',
-  //   padding: 5,
-  //   margin: 5,
-  // },
-  // logoContainer: {
-  //   flex: 20,
-  //   marginTop: deviceHeight / 8,
-  //   // marginBottom: 70,
-  //   padding: 5,
-  //   margin: 5,
-  //   backgroundColor:'#FFFFFF',
-  // },
-  // logo: {
-  //   position: "absolute",
-  //   left: Platform.OS === "android" ? 40 : 50,
-  //   top: Platform.OS === "android" ? 35 : 60,
-  //   width: 250,
-  //   height: 90
-  // },
+  formContainer:{
+    flex: 1,
+    backgroundColor:'transparent'
+  },
   imageContainer: {
     flex: 1,
-    width: null,
-    height: null,
-    borderColor: '#CB8736',
-    borderRadius: 5
-  },
-  // logoContainer: {
-  //   flex: 1,
-  //   marginTop: deviceHeight / 8,
-  //   marginBottom: 30
-  // },
-  logo: {
-    position: "absolute",
-    left: Platform.OS === "android" ? 40 : 50,
-    top: Platform.OS === "android" ? 35 : 60,
-    width: 280,
-    height: 100
-    // width: 290,
-    // height: 80
-  },
-  text: {
-    color: "#D8D8D8",
-    bottom: 6,
-    marginTop: 5
+    width: '100%',
+    height: '100%',
+    resizeMode:'contain'
   },
   container: {
     backgroundColor: "#FFF"
@@ -84,13 +21,6 @@ export default {
     backgroundColor: "#8B1E1B",
     width: 80,
     height: 15,
-  },
-  text_: {
-    alignSelf: "center",
-    marginBottom: 7
-  },
-  mb: {
-    marginBottom: 15
   },
   iconContainer: {
     flexDirection: "row",
@@ -110,7 +40,6 @@ export default {
     alignItems: "center",
     paddingHorizontal: 8,
     justifyContent: 'center',
-    alignItems: 'center',
     alignSelf: 'center',
     flexDirection: 'column',
     backgroundColor: 'transparent',
@@ -157,11 +86,6 @@ export default {
     fontFamily: 'Raleway-Medium',
     fontWeight: '300'
   },
-  // logoContainer: {
-  //   // flex: 1,
-  //   marginTop: deviceHeight / 38,
-  //   marginBottom: 5
-  // },
   MainContainer: {
     flex: 1,
     // backgroundColor: '#EAEAEE',
@@ -181,122 +105,51 @@ export default {
   content: {
     alignItems: 'center',
   },
-  TextComponentStyle11: {
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#000000',
-    textAlign: 'center',
-    marginBottom: 15,
+  textarea: {
+    width: Platform.OS === "android" ?  320: 345,
+    textAlignVertical: 'top',  // hack android
+    height: Platform.OS === "android" ? 50 :60 ,
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontFamily: 'Raleway-Medium',
+    fontWeight: '300'
   },
-  TextInputStyleClass: {
-    padding: 5,
-    marginBottom: 5,
-    height: 40,
-    textAlign: 'center',
-    borderRadius: 5,
-    // fontSize: 16,
-    borderWidth: 0.2,
-    borderColor: '#FF1E26',
-    backgroundColor: 'rgba(255,255,255,1)'
-
-  },
-  TextComponentStyle1: {
-    fontSize: 20,
-    textAlign: 'center',
-    marginBottom: 15,
-    color: '#000000',
-    // fontStyle: 'italic',
-    // fontWeight: 'bold',
-    // textShadowColor: '#252525',
-    // textShadowOffset:{width:2,height:2},
-    // textShadowRadius:15
-  },
-  TextComponentStyle: {
-    fontSize: 20,
-    textAlign: 'center',
-    // color: '#FF1E26',
-    textAlign: 'center',
-    marginBottom: 15,
-    marginTop: 15
-  },
-  TextInputStyleClassText: {
-    padding: 5,
-    marginBottom: 0,
-    height: 25,
-    width: 139,
-    textAlign: 'center',
-    borderRadius: 5,
-    fontSize: 13,
-    color: '#0677BD',
-    backgroundColor: '#EEEEEE'
-  },
-  TextInputStyleClassPicker_: {
-    padding: 5,
-    marginBottom: 5,
-    height: 30,
-    width: 128,
-    // backgroundColor:'#0677BD',
-    // alignItems:'center',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#0677BD',
-    borderWidth: 0.2
-  },
-  ImageContainer_: {
-    borderRadius: 5,
-    width: 300,
-    height: 120,
-    margin: 5,
-    padding: 5,
-    borderColor: '#CB8736',
-    // borderWidth: 1 / PixelRatio.get(),
+  logoContainer:{
+    flexDirection:'row',
+    width: 250,
+    height: 90,
+    top: Platform.OS === "android" ? -20 : -40,
+    marginBottom: 25,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#EEEEEE',
+    alignSelf: 'center',
+    alignItems: 'center'
   },
-  TextStyle: {
-    color: '#fff',
-    textAlign: 'center',
-    padding: 10
+  logo: {
+    position: "absolute",
+    top: Platform.OS === "android" ? 35 : 60,
+    width: 100,
+    height: 100,
+    borderRadius:600,
+    resizeMode:'cover',
+    padding:20
   },
-  inputErr:{
-    color:'red'
+  form:{
+    flex:3,
   },
-  textareaContainer: {
-   height: 130,
-   padding: 5,
-   backgroundColor: '#F5FCFF',
- },
- textarea: {
-   width: Platform.OS === "android" ?  320: 345,
-  //  alignSelf: 'stretch',
-   textAlignVertical: 'top',  // hack android
-   height: Platform.OS === "android" ? 95 : 110,
-   fontSize: 14,
-   color: '#333',
- },
- logoContainer:{
-   flexDirection:'row',
-  width: 250,
-   height: 90, 
-   top: Platform.OS === "android" ? -20 : -40, 
-   marginRight: 70,
-   marginBottom: 25,
-  justifyContent: 'center',
-  alignSelf: 'center',
-  alignItems: 'center'
- },
- logo: {
-  position: "absolute",
-  left: Platform.OS === "android" ? 40 : 50,
-  top: Platform.OS === "android" ? 35 : 60,
-  width: 250,
-  height: 90,
-  alignSelf: 'stretch'
-},
-imageContainer: {
-  flex: 1,
-  width: null,
-  height: null
-},
+  item:{
+    margin:5,
+    width:'100%'
+  },
+  button:{
+    borderRadius:200,
+    backgroundColor:'#FDCE00',
+    width: '100%',
+    height: Platform.OS === "android" ? 50 :60 ,
+    margin:5
+  },
+  label:{flexDirection:'row',
+    marginTop:40,
+    justifyContent:'center',
+
+  }
 };

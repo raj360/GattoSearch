@@ -16,7 +16,7 @@ import {
   H3,
 } from "native-base";
 import styles from "./styles";
-import { ImageBackground, View, StatusBar, TouchableOpacity } from "react-native";
+import { ImageBackground, View, StatusBar, TouchableOpacity,Image } from "react-native";
 // import LinearGradient from 'react-native-linear-gradient';
 
 const launchscreenBg = require("../../assets/launchscreen-bg.png");
@@ -26,67 +26,77 @@ class Login extends Component {
   SampleFunction = () => {
 
     Alert.alert("Gradient Button Clicked :)");
-  }
+  };
   render() {
     return (
-      <Container style={styles.container}>
-        {/* <ImageBackground source={launchscreenBg} style={styles.imageContainer}> */}
-        <Header style={{ backgroundColor: 'transparent' }}>
-          <Left>
-            <Button transparent onPress={() => this.props.navigation.goBack()}>
-              <Icon name="arrow-back" style={{ color: '#FFFFFF' }} />
-            </Button>
-          </Left>
-          <Body>
-            <Title style={{ color: '#FFFFFF' }}>Login</Title>
-          </Body>
-          <Right />
-        </Header>
+        <Container style={styles.container}>
+          <ImageBackground source={launchscreenBg} style={styles.imageContainer}>
+            <Header style={{ backgroundColor: 'transparent' }}>
+              <Left>
+                <Button transparent onPress={() => this.props.navigation.goBack()}>
+                  <Icon name="arrow-back" style={{ color: '#FFFFFF' }} />
+                </Button>
+              </Left>
+              <Body>
+                <Title style={{ color: '#FFFFFF' }}>Login</Title>
+              </Body>
+              <Right />
+            </Header>
 
-        <Content padder>
-          <View
-            style={{
-              // alignItems: "center",
-              justifyContent: 'center',
-              marginBottom: 50,
-              backgroundColor: "transparent"
-            }}
-          >
-            <View style={styles.logoContainer}>
-              <ImageBackground source={launchscreenLogo} style={styles.logo} />
-            </View>
-            <View style={{ marginTop: 105 }} />
+            <Content padder>
+              <View style={styles.formContainer}>
+                <View style={styles.logoContainer}>
+                  <Image source={launchscreenLogo} style={styles.logo} />
+                </View>
 
-            <View style={{ marginBottom: 35, width: '100%', flexDirection: 'row', textItems: 'center' }}>
-              <Text style={{ fontSize: 17, color: '#687373' }}>Welcome to, </Text>
-              <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}> GATTO SEARCH </Text>
-            </View>
-          </View>
-          <Form>
-            <Item rounded style={{ padding: 5, margin: 5 }}>
-              <Icon active name='ios-mail' style={{ color: "#687373" }} />
-              <Input placeholder="Email" />
-            </Item>
-            <Item rounded style={{ padding: 5, margin: 5 }}>
-              <Icon active name='ios-lock' style={{ color: "#687373" }} />
-              <Input placeholder="Password" secureEntry={true} />
-            </Item>
-            <View style={{ marginTop: 8 }} />
-            <Right>
-              <View><Text style={{ color: '#EAEAEA', textAlign: 'right' }} onPress={() => this.props.navigation.navigate('ForgotPassword')}>Forgot Password?</Text></View>
-            </Right>
-            <Button full style={styles.mt15}>
-              <Text>Login</Text>
-            </Button>
 
-            <View style={{ marginTop: 40 }} />
-            <View style={{ alignItems: 'flex-end', alignItems: 'baseline' }}>
-              <Text style={{ color: 'white', textAlign: 'center' }}
-                onPress={() => this.props.navigation.navigate('SignUp')}>Create New Account</Text></View>
-          </Form>
-        </Content>
-        {/* </ImageBackground> */}
-      </Container>
+                <View style={{ marginTop: 30 }} />
+
+                <View style={{ marginBottom: 35, width: '100%', flexDirection: 'row',justifyContent:'center' }}>
+                  <Text style={{ fontSize: 20, color: '#FFFFFF',opacity:0.4 }}>Welcome to </Text>
+                  <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#FFFFFF' }}> GATTO SEARCH </Text>
+                </View>
+              </View>
+
+              <View style={styles.form}>
+                <Form style={{margin:20}}>
+                  <Item rounded style={styles.item}>
+                    <Icon active name='ios-mail' style={{ color: "#FFFFFF" }} />
+                    <Input placeholder="Email" placeholderTextColor='#FFFFFF' style={styles.textarea}/>
+                  </Item>
+
+                  <Item rounded style={styles.item} >
+                    <Icon active name='ios-lock' style={{ color: "#FFFFFF" }} />
+                    <Input placeholder="password" style={styles.textarea} secureEntry={true} placeholderTextColor='#FFFFFF'/>
+                  </Item>
+
+                  <View style={{ marginTop: 8 }} />
+                  <View style={{justifyContent:'flex-start'}}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('ForgotPassword')}
+                    >
+                      <Text style={{ color: '#EAEAEA', textAlign: 'right' }} >Forgot Password?</Text>
+                    </TouchableOpacity>
+                  </View>
+                  <TouchableOpacity style={{marginTop:10}} onPress={() => this.props.navigation.navigate('Home')}>
+                    <Button full warning style={styles.button}>
+                      <Text>Login</Text>
+                    </Button>
+                  </TouchableOpacity>
+                  <View style={{ marginTop: 30 }} />
+                  <View style ={styles.label}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('SignUp')}>
+                      <Text style={{color:'#FFFFFF',marginEnd:5,marginTop:40,  borderBottomWidth:2,
+                        borderBottomColor:'#FFFFFF',}}>
+                        Create New Account
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
+                </Form>
+              </View>
+            </Content>
+          </ImageBackground>
+        </Container>
     );
   }
 }
